@@ -1,0 +1,20 @@
+:root {
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-primary: #ff0000;
+  --color-background: #fbf3f3;
+  --color-foreground: #ffffff;
+  --color-title: #060404;
+  --color-text: #625b5b;
+}
+
+body, input, button, textarea {
+  font-family: "Poppins", system-ui, sans-serif;
+}
