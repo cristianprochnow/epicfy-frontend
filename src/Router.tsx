@@ -1,20 +1,21 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { NotFound } from './screens/NotFound';
 
 const routes = createBrowserRouter([
   {
     path: '/',
-    errorElement: <div>Não encontrado!</div>,
+    errorElement: <NotFound />,
     element: <div>Home</div>,
     children: []
   },
   {
     path: '/login',
-    errorElement: <div>Não encontrado!</div>,
+    errorElement: <NotFound />,
     element: <div>Login</div>
   },
   {
     path: '/register',
-    errorElement: <div>Não encontrado!</div>,
+    errorElement: <NotFound />,
     element: <div>Register</div>,
   }
 ]);
