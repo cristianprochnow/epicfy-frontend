@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import notFoundHero from '../assets/not-found.svg';
 import '../styles/screens/NotFound.css';
 
 export function NotFound() {
   return (
     <main id="not-found-screen">
       <header>
-        <img src="public/not-found.svg" alt="Not Found Hero" />
+        <img src={notFoundHero} alt="Not Found Hero" />
       </header>
 
       <div>
