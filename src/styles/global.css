@@ -1,8 +1,5 @@
 :root {
   font-size: 62.5%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -13,6 +10,17 @@
   --color-foreground: #ffffff;
   --color-title: #060404;
   --color-text: #625b5b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-background);
 }
 
 body, input, button, textarea {
