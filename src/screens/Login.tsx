@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import suggestHero from '../assets/suggest.svg';
+import { Input } from '../components/Input';
 import '../styles/screens/Login.css';
 
 export function Login() {
@@ -17,15 +18,8 @@ export function Login() {
           </header>
 
           <section>
-            <div className="input-group">
-              <label htmlFor="login-email">E-mail</label>
-              <input type="text" id="login-email" />
-            </div>
-
-            <div className="input-group">
-              <label htmlFor="login-password">Senha</label>
-              <input type="password" id="login-password" />
-            </div>
+            <Input id="login-email" label='E-mail' />
+            <Input type="password" id="login-password" label='Senha' />
 
             <button>Entrar</button>
           </section>
