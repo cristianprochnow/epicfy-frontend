@@ -1,5 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Login } from './screens/Login';
 import { NotFound } from './screens/NotFound';
+import { Register } from './screens/Register';
 
 const routes = createBrowserRouter([
   {
@@ -11,12 +13,12 @@ const routes = createBrowserRouter([
   {
     path: '/login',
     errorElement: <NotFound />,
-    element: <div>Login</div>
+    element: <Login />
   },
   {
     path: '/register',
     errorElement: <NotFound />,
-    element: <div>Register</div>,
+    element: <Register />,
   }
 ]);
 
