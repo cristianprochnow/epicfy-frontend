@@ -10,6 +10,10 @@
   --color-foreground: #ffffff;
   --color-title: #060404;
   --color-text: #625b5b;
+  --color-subtext: #b4b4b4;
+
+  --font-main: "Poppins", system-ui, sans-serif;
+  --font-special: "Raleway Dots", system-ui, sans-serif;
 }
 
 * {
@@ -24,5 +28,5 @@ body {
 }
 
 body, input, button, textarea {
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: var(--font-main);
 }
