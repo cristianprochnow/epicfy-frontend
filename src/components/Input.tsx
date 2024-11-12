@@ -9,7 +9,7 @@ export type InputProps = {
 
 export function Input({ id, label, type }: InputProps) {
   return (
-    <div className="input-group">
+    <div className="input-group-component">
       <label htmlFor={id}>{label}</label>
       <input type={type || 'text'} id={id} />
     </div>
