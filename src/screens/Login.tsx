@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import suggestHero from '../assets/suggest.svg';
+import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import '../styles/screens/Login.css';
 
@@ -21,7 +22,7 @@ export function Login() {
             <Input id="login-email" label='E-mail' />
             <Input type="password" id="login-password" label='Senha' />
 
-            <button>Entrar</button>
+            <Button>Entrar</Button>
           </section>
 
           <footer>
