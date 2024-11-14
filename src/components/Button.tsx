@@ -6,7 +6,7 @@ export type ButtonProps = {
   onHandler: () => void;
 } & PropsWithChildren;
 
-export function Button({ disabled, onHandler, children }: ButtonProps) {
+export function Button({ disabled = false, onHandler, children }: ButtonProps) {
   return (
     <button className="button-component" onClick={onHandler} disabled={disabled}>
       {children}
