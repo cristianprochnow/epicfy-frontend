@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export function App() {
   return (
     <>
-      <ToastContainer />
+      <ToastContainer toastStyle={{ fontSize: '1.4rem' }} />
       <Router />
     </>
   );

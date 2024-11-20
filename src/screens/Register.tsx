@@ -1,10 +1,53 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import suggestHero from '../assets/suggest.svg';
+import { toast } from 'react-toastify';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
+import suggestHero from '../assets/suggest.svg';
 import '../styles/screens/Login.css';
+import { api } from '../services/api.ts';
+import { ApiUserCreationResponse } from '../types/api.ts';
+import { AxiosError } from 'axios';
 
 export function Register() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [isAbleToRegister, setAbleToRegister] = useState(false);
+
+  useEffect(() => {
+    setAbleToRegister(!!name && !!email && !!password && !!confirmPassword);
+  }, [name, email, password, confirmPassword]);
+
+  async function onSubmitHandler() {
+    try {
+      if (!isAbleToRegister) throw new Error('Todos os campos são obrigatórios.');
+      if (password !== confirmPassword) throw new Error('Senhas inseridas não batem.');
+
+      const response = await api.post('/user', {
+        email, password, username: name, is_company: false
+      });
+      const content: ApiUserCreationResponse = response.data;
+
+      if (content.error) throw new Error(content.error);
+
+      toast.success('Criado com sucesso!');
+    } catch (exception) {
+      let message = '';
+
+      if (exception instanceof AxiosError) {
+        if (exception.response) {
+          message = exception.response.data.error;
+        }
+      } else if (exception instanceof Error) {
+        message = exception.message;
+      }
+
+      if (message) toast.error(message);
+    }
+  }
+
   return (
     <main id="login-screen">
       <aside className="hero">
@@ -19,12 +62,30 @@ export function Register() {
           </header>
 
           <section>
-            <Input id="login-name" label='Nome' />
-            <Input id="login-email" label='E-mail' />
-            <Input type="password" id="login-password" label='Senha' />
-            <Input type="password" id="login-confirm-password" label='Confirme a senha' />
+            <Input
+              id="login-name"
+              label="Nome"
+              value={name}
+              onChange={event => setName(event.target.value)} />
+            <Input
+              id="login-email"
+              label="E-mail"
+              value={email}
+              onChange={event => setEmail(event.target.value)} />
+            <Input
+              type="password"
+              id="login-password"
+              label="Senha"
+              value={password}
+              onChange={event => setPassword(event.target.value)} />
+            <Input
+              type="password"
+              id="login-confirm-password"
+              label="Confirme a senha"
+              value={confirmPassword}
+              onChange={event => setConfirmPassword(event.target.value)} />
 
-            <Button onHandler={() => alert('register!')}>Criar conta</Button>
+            <Button disabled={!isAbleToRegister} onHandler={onSubmitHandler}>Criar conta</Button>
           </section>
 
           <footer>

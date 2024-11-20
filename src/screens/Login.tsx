@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import suggestHero from '../assets/suggest.svg';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
+import suggestHero from '../assets/suggest.svg';
 import '../styles/screens/Login.css';
 
 export function Login() {

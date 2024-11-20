@@ -8,7 +8,7 @@ export type ButtonProps = {
 
 export function Button({ disabled = false, onHandler, children }: ButtonProps) {
   return (
-    <button className="button-component" onClick={onHandler} disabled={disabled}>
+    <button type="button" className="button-component" onClick={onHandler} disabled={disabled}>
       {children}
     </button>
   );
