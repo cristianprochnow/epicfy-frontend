@@ -5,9 +5,8 @@ import { Button } from '../components/Button';
 import { Input } from '../components/Input';
 import suggestHero from '../assets/suggest.svg';
 import '../styles/screens/Login.css';
-import { api } from '../services/api.ts';
+import { api, getError } from '../services/api.ts';
 import { ApiUserCreationResponse } from '../types/api.ts';
-import { AxiosError } from 'axios';
 
 export function Register() {
   const [name, setName] = useState('');
@@ -34,17 +33,7 @@ export function Register() {
 
       toast.success('Criado com sucesso!');
     } catch (exception) {
-      let message = '';
-
-      if (exception instanceof AxiosError) {
-        if (exception.response) {
-          message = exception.response.data.error;
-        }
-      } else if (exception instanceof Error) {
-        message = exception.message;
-      }
-
-      if (message) toast.error(message);
+      toast.error(getError(exception));
     }
   }
 
