@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
+import { api } from '../services/api.ts';
+import { ApiUserCreationResponse, ApiUserLoginResponse } from '../types/api.ts';
+import { getError } from '../helpers/api.ts';
+import { error, loading, success } from '../helpers/toast.ts';
 import suggestHero from '../assets/suggest.svg';
 import '../styles/screens/Login.css';
-import { api, getError } from '../services/api.ts';
-import { ApiUserCreationResponse } from '../types/api.ts';
 
 export function Register() {
   const [name, setName] = useState('');
@@ -14,6 +15,7 @@ export function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isAbleToRegister, setAbleToRegister] = useState(false);
+  const navigator = useNavigate();
 
   useEffect(() => {
     setAbleToRegister(!!name && !!email && !!password && !!confirmPassword);
@@ -21,19 +23,29 @@ export function Register() {
 
   async function onSubmitHandler() {
     try {
-      if (!isAbleToRegister) throw new Error('Todos os campos são obrigatórios.');
-      if (password !== confirmPassword) throw new Error('Senhas inseridas não batem.');
+      if (!isAbleToRegister) throw new Error('Todos os campos são obrigatórios');
+      if (password !== confirmPassword) throw new Error('Senhas inseridas não batem');
 
-      const response = await api.post('/user', {
+      loading('Realizando cadastro');
+      const responseCreation = await api.post('/user', {
         email, password, username: name, is_company: false
       });
-      const content: ApiUserCreationResponse = response.data;
+      const contentCreation: ApiUserCreationResponse = responseCreation.data;
 
-      if (content.error) throw new Error(content.error);
+      if (contentCreation.error) throw new Error(contentCreation.error);
 
-      toast.success('Criado com sucesso!');
+      loading('Realizando login');
+      const responseLogin = await api.post('/user/login', {
+        email, password
+      });
+      const contentLogin: ApiUserLoginResponse = responseLogin.data;
+
+      if (contentLogin.error) throw new Error(contentLogin.error);
+
+      success(`Cadastro e Login realizado com sucesso [${contentLogin.data?.token}]`);
+      navigator('/');
     } catch (exception) {
-      toast.error(getError(exception));
+      error(getError(exception));
     }
   }
 

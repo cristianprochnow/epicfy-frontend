@@ -1,6 +1,6 @@
 export type ApiErrorResponse = {
   ok: boolean;
-  error?: string
+  error?: string;
 };
 
 export type ApiSuccessResponse = {
@@ -10,6 +10,13 @@ export type ApiSuccessResponse = {
 
 export type ApiUserCreationResponse = ApiErrorResponse & ApiSuccessResponse & {
   data?: {
-    user: number
+    user: number;
+  };
+};
+
+export type ApiUserLoginResponse = ApiErrorResponse & ApiSuccessResponse & {
+  data?: {
+    token: string;
+    user: number;
   };
 };
