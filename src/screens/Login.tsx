@@ -1,23 +1,41 @@
 import { ChangeEvent, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import suggestHero from '../assets/suggest.svg';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { Input } from '../components/Input';
+import { api } from '../services/api.ts';
+import { ApiUserLoginResponse } from '../types/api.ts';
+import { getError } from '../helpers/api.ts';
+import suggestHero from '../assets/suggest.svg';
 import '../styles/screens/Login.css';
+import { error, loading, success } from '../helpers/toast.ts';
 
 export function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isAbleToLogin, setAbleToLogin] = useState(true);
+  const navigator = useNavigate();
 
   useEffect(() => {
     setAbleToLogin(!!email && !!password);
   }, [email, password]);
 
-  function onLoginHandler() {
-    if (!isAbleToLogin) return;
+  async function onLoginHandler() {
+    try {
+      if (!isAbleToLogin) throw new Error('Todos os campos são obrigatórios');
 
+      loading('Realizando login');
+      const response = await api.post('/user/login', {
+        email, password
+      });
+      const content: ApiUserLoginResponse = response.data;
 
+      if (content.error) throw new Error(content.error);
+
+      success(`Login realizado com sucesso [${content.data?.token}]`);
+      navigator('/');
+    } catch (exception) {
+      error(getError(exception));
+    }
   }
 
   function onEmailChange(event: ChangeEvent<HTMLInputElement>) {
