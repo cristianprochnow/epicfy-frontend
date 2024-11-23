@@ -13,7 +13,11 @@ export function Input({ id, label, value, type, onChange }: InputProps) {
   return (
     <div className="input-group-component">
       <label htmlFor={id}>{label}</label>
-      <input onChange={onChange} value={value} type={type || 'text'} id={id} />
+      <input
+        onChange={onChange}
+        value={value}
+        type={type || 'text'}
+        id={id} />
     </div>
   );
 }

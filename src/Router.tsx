@@ -2,12 +2,13 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Login } from './screens/Login';
 import { NotFound } from './screens/NotFound';
 import { Register } from './screens/Register';
+import { Search } from './screens/Search';
 
 const routes = createBrowserRouter([
   {
     path: '/',
     errorElement: <NotFound />,
-    element: <div>Home</div>,
+    element: <Search />,
     children: []
   },
   {
