@@ -1,4 +1,6 @@
 import { ChangeEvent, useState } from 'react';
+import { Search as SearchIcon } from 'react-feather';
+import { Button } from '../components/Button';
 import '../styles/screens/Search.css';
 
 export function Search() {
@@ -8,18 +10,25 @@ export function Search() {
     setSearch(event.target.value);
   }
 
+  function onSearchHandler() {}
+
   return (
     <main id="search-screen">
-      <header>
+      <header className='wrapper'>
         Epicfy
       </header>
-      <section>
+      <form className='wrapper'>
+        <p>Comece pesquisando por uma palavra-chave, uma funcionalidade ou uma aplicação existente...</p>
+
         <div className="input-group">
-          <span>S</span>
+          <span>
+            <SearchIcon />
+          </span>
           <input value={search} onChange={onSearchChange} type="text" />
         </div>
-      </section>
-      <footer></footer>
+
+        <Button onHandler={onSearchHandler}>Pesquisar</Button>
+      </form>
     </main>
   );
 }

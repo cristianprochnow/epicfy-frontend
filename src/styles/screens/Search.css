@@ -1,1 +1,23 @@
-#search-screen {}
+#search-screen {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#search-screen .wrapper {
+  width: 90%;
+  max-width: 1024px;
+  align-self: center;
+}
+
+#search-screen header {
+  font-size: 6.4rem;
+  line-height: 8.6rem;
+  color: var(--color-primary);
+  font-family: var(--font-special);
+  text-align: center;
+}
+
+#search-screen header
