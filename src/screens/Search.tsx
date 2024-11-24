@@ -18,7 +18,7 @@ export function Search() {
         Epicfy
       </header>
       <form className='wrapper'>
-        <p>Comece pesquisando por uma palavra-chave, uma funcionalidade ou uma aplicação existente...</p>
+        <p>Comece pesquisando por uma palavra-chave, uma funcionalidade ou uma aplicação existente para ajudar a melhorar qualquer solução...</p>
 
         <div className="input-group">
           <span>

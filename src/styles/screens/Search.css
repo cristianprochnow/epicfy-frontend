@@ -31,6 +31,7 @@
 #search-screen form p {
   font-size: 1.6rem;
   line-height: 3.2rem;
+  text-align: center;
 }
 
 #search-screen .input-group {
