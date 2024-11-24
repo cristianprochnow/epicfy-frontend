@@ -3,12 +3,12 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 #search-screen .wrapper {
   width: 90%;
-  max-width: 1024px;
+  max-width: 768px;
   align-self: center;
 }
 
@@ -20,4 +20,40 @@
   text-align: center;
 }
 
-#search-screen header
+#search-screen form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 4.8rem;
+  color: var(--color-text);
+}
+
+#search-screen form p {
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+}
+
+#search-screen .input-group {
+  position: relative;
+}
+
+#search-screen .input-group span {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  width: 6.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+}
+
+#search-screen .input-group input {
+  width: 100%;
+  height: 6.4rem;
+  border: 0;
+  border-radius: .8rem;
+  padding: 0 2.4rem 0 6.4rem;
+  color: var(--color-text);
+}
