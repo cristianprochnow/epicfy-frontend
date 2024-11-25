@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Idea } from './screens/Idea';
+import { Ideas } from './screens/Ideas';
 import { Login } from './screens/Login';
 import { NotFound } from './screens/NotFound';
 import { Register } from './screens/Register';
@@ -23,12 +25,12 @@ const routes = createBrowserRouter([
   {
     path: '/ideas',
     errorElement: <NotFound />,
-    element: <div>Ideias</div>,
+    element: <Ideas />,
   },
   {
     path: '/ideas/:id',
     errorElement: <NotFound />,
-    element: <div>Ideias com id</div>,
+    element: <Idea />,
   },
 ]);
 
