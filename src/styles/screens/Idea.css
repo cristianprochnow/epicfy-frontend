@@ -99,6 +99,7 @@
         flex-direction: column;
         background-color: var(--color-foreground);
         padding: 1.6rem;
+        border-radius: .8rem;
 
         span:nth-child(1) {
           font-size: 1.4rem;
