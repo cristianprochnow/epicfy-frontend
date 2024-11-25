@@ -29,85 +29,130 @@ export function Ideas() {
         </header>
 
         <div>
-          <table>
-            <tr>
-              <td>
-                <div className='identification'>
-                  <p>Adicionar mais emojis ao WhatsApp</p>
-                  <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
-                </div>
+          <div>
+            <div className='identification'>
+              <p>Adicionar mais emojis ao WhatsApp</p>
+              <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
+            </div>
 
-                <footer>
-                  <div className="status">
-                    <span>Em progresso</span>
-                  </div>
+            <footer>
+              <div className="status">
+                <span>Em progresso</span>
+              </div>
 
-                  <div className='votes'>
-                    <span title='Like'>
-                      <ThumbsUp />
-                      <span>50</span>
-                    </span>
-                    <span title='Dislike'>
-                      <ThumbsDown />
-                      <span>10</span>
-                    </span>
-                  </div>
-                </footer>
-              </td>
-            </tr>
+              <div className='votes'>
+                <span title='Like'>
+                  <ThumbsUp />
+                  <span>50</span>
+                </span>
+                <span title='Dislike'>
+                  <ThumbsDown />
+                  <span>10</span>
+                </span>
+              </div>
 
-            <tr>
-              <td>
-                <div className='identification'>
-                  <p>Adicionar mais emojis ao WhatsApp</p>
-                  <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
-                </div>
+            </footer>
+          </div>
 
-                <footer>
-                  <div className="status">
-                    <span>Em progresso</span>
-                  </div>
+          <div>
+            <div className='identification'>
+              <p>Adicionar mais emojis ao WhatsApp</p>
+              <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
+            </div>
 
-                  <div className='votes'>
-                    <span title='Like'>
-                      <ThumbsUp />
-                      <span>50</span>
-                    </span>
-                    <span title='Dislike'>
-                      <ThumbsDown />
-                      <span>10</span>
-                    </span>
-                  </div>
-                </footer>
-              </td>
-            </tr>
+            <footer>
+              <div className="status">
+                <span>Em progresso</span>
+              </div>
 
-            <tr>
-              <td>
-                <div className='identification'>
-                  <p>Adicionar mais emojis ao WhatsApp</p>
-                  <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
-                </div>
+              <div className='votes'>
+                <span title='Like'>
+                  <ThumbsUp />
+                  <span>50</span>
+                </span>
+                <span title='Dislike'>
+                  <ThumbsDown />
+                  <span>10</span>
+                </span>
+              </div>
 
-                <footer>
-                  <div className="status">
-                    <span>Em progresso</span>
-                  </div>
+            </footer>
+          </div>
 
-                  <div className='votes'>
-                    <span title='Like'>
-                      <ThumbsUp />
-                      <span>50</span>
-                    </span>
-                    <span title='Dislike'>
-                      <ThumbsDown />
-                      <span>10</span>
-                    </span>
-                  </div>
-                </footer>
-              </td>
-            </tr>
-          </table>
+          <div>
+            <div className='identification'>
+              <p>Adicionar mais emojis ao WhatsApp</p>
+              <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
+            </div>
+
+            <footer>
+              <div className="status">
+                <span>Em progresso</span>
+              </div>
+
+              <div className='votes'>
+                <span title='Like'>
+                  <ThumbsUp />
+                  <span>50</span>
+                </span>
+                <span title='Dislike'>
+                  <ThumbsDown />
+                  <span>10</span>
+                </span>
+              </div>
+
+            </footer>
+          </div>
+
+          <div>
+            <div className='identification'>
+              <p>Adicionar mais emojis ao WhatsApp</p>
+              <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
+            </div>
+
+            <footer>
+              <div className="status">
+                <span>Em progresso</span>
+              </div>
+
+              <div className='votes'>
+                <span title='Like'>
+                  <ThumbsUp />
+                  <span>50</span>
+                </span>
+                <span title='Dislike'>
+                  <ThumbsDown />
+                  <span>10</span>
+                </span>
+              </div>
+
+            </footer>
+          </div>
+
+          <div>
+            <div className='identification'>
+              <p>Adicionar mais emojis ao WhatsApp</p>
+              <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
+            </div>
+
+            <footer>
+              <div className="status">
+                <span>Em progresso</span>
+              </div>
+
+              <div className='votes'>
+                <span title='Like'>
+                  <ThumbsUp />
+                  <span>50</span>
+                </span>
+                <span title='Dislike'>
+                  <ThumbsDown />
+                  <span>10</span>
+                </span>
+              </div>
+
+            </footer>
+          </div>
         </div>
       </section>
 

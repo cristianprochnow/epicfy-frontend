@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 
   .wrapper {
     width: var(--width-wrapper);
@@ -26,6 +25,7 @@
       align-items: center;
       justify-content: space-between;
       gap: .8rem;
+      padding: 1.6rem 0;
 
       span {
         text-align: right;
@@ -36,17 +36,12 @@
     }
 
     > div {
-      height: 72vh;
-      overflow-y: auto;
-      margin: 2.4rem 0;
       border-radius: .8rem;
-    }
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .8rem;
 
-    table {
-      width: 100%;
-      border-spacing: 0 .8rem;
-
-      td {
+      > div {
         display: flex;
         flex-direction: column;
         gap: .8rem;
@@ -118,5 +113,11 @@
 }
 
 @media (min-width: 480px) {
-
+  #ideas-screen {
+    section {
+      > div {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
 }
