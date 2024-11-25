@@ -6,6 +6,12 @@
   justify-content: center;
 }
 
+#search-screen .wrapper {
+  width: var(--width-wrapper);
+  max-width: var(--width-max-wrapper);
+  align-self: center;
+}
+
 #search-screen header {
   font-size: 6.4rem;
   line-height: 8.6rem;

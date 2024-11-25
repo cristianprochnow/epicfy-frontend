@@ -2,7 +2,6 @@ import { ChangeEvent, useState } from 'react';
 import { Search as SearchIcon } from 'react-feather';
 import { createSearchParams, useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
-import '../styles/components/Wrapper.css';
 import '../styles/screens/Search.css';
 
 export function Search() {
