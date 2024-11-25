@@ -42,7 +42,17 @@ export function Idea() {
         </footer>
       </form>
 
-      <section className='wrapper'></section>
+      <section className='wrapper'>
+        <h1>Comentários</h1>
+
+        <div>
+          <div className="comment">
+            <span>Augusto de Almeida Cavalcante</span>
+            <span>20/08/2024 15:06:34</span>
+            <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
