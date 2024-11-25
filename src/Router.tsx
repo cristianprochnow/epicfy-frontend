@@ -8,8 +8,7 @@ const routes = createBrowserRouter([
   {
     path: '/',
     errorElement: <NotFound />,
-    element: <Search />,
-    children: []
+    element: <Search />
   },
   {
     path: '/login',
@@ -20,7 +19,17 @@ const routes = createBrowserRouter([
     path: '/register',
     errorElement: <NotFound />,
     element: <Register />,
-  }
+  },
+  {
+    path: '/ideas',
+    errorElement: <NotFound />,
+    element: <div>Ideias</div>,
+  },
+  {
+    path: '/ideas/:id',
+    errorElement: <NotFound />,
+    element: <div>Ideias com id</div>,
+  },
 ]);
 
 export function Router() {
