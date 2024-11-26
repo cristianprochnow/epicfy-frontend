@@ -70,6 +70,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          margin-top: 1.6rem;
 
           .status {
             span {
@@ -97,7 +98,7 @@
             }
 
             span:hover {
-              color: var(--color-subtext);
+              color: var(--color-primary);
             }
           }
         }

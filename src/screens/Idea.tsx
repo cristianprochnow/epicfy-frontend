@@ -1,14 +1,82 @@
-import { ArrowLeft, ThumbsDown, ThumbsUp } from 'react-feather';
-import { useParams } from 'react-router-dom';
+import { ArrowLeft, Heart } from 'react-feather';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
 import '../styles/screens/Idea.css';
+import { ApiIdea } from '../types/api';
+import { useEffect, useState } from 'react';
+import { api } from '../services/api.ts';
 
-type IdeaRouteParams = { id?: string };
+type ApiLikes = {
+  idea_id: number;
+  idea_title: string;
+  likeCount: number;
+};
+
+type ApiComments = {
+  commentId: number;
+  content: string;
+  created_at: string;
+  user_id: number;
+  idea_id: number;
+  ideaTitle: string;
+  username: string;
+};
+
+type ApiLikesResponse = {
+  data: {
+    votes: ApiLikes[];
+  };
+  ok: boolean;
+};
+
+type ApiCommentsResponse = {
+  data: {
+    comments: ApiComments[];
+  };
+  ok: boolean;
+};
 
 export function Idea() {
-  const params: IdeaRouteParams = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const idea: ApiIdea = location.state;
+  const [likes, setLikes] = useState(0);
+  const [comments, setComments] = useState<ApiComments[]>([]);
 
-  function onBackHandler() {}
+  useEffect(() => {
+    loadLikes();
+    loadComments();
+  }, []);
+
+  async function loadLikes() {
+    const response = await api.get('/vote/todos');
+    const responseLikes: ApiLikesResponse = response.data;
+    const ideaLikes = responseLikes.data.votes
+      .filter(vote => vote.idea_id === idea.id);
+
+    setLikes(ideaLikes[0].likeCount || 0);
+  }
+
+  async function loadComments() {
+    const response = await api.get('/comment/todos');
+    const responseComments: ApiCommentsResponse = response.data;
+    const ideaComments = responseComments.data.comments
+      .filter(comment => comment.idea_id === idea.id)
+      .map(comment => {
+        const createdAt = (new Date(comment.created_at));
+        const newDate = `${createdAt.getDate()}/${createdAt.getMonth() + 1}/${createdAt.getFullYear()}`;
+        const newHours = `${createdAt.getHours()}:${createdAt.getMinutes()}:${createdAt.getSeconds()}`;
+        comment.created_at = `${newDate} ${newHours}`;
+
+        return comment;
+      });
+
+    setComments(ideaComments);
+  }
+
+  function onBackHandler() {
+    navigate(-1);
+  }
 
   return (
     <main id="idea-screen">
@@ -21,22 +89,18 @@ export function Idea() {
       </header>
 
       <form className='wrapper'>
-        <h1>Adicionar mais emojis ao WhatsApp</h1>
-        <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
+        <h1>{idea.title}</h1>
+        <p>{idea.description}</p>
 
         <footer>
           <div className="status">
-            <span>Em progresso</span>
+            <span>{idea.status}</span>
           </div>
 
           <div className='votes'>
             <span title='Like'>
-              <ThumbsUp />
-              <span>50</span>
-            </span>
-            <span title='Dislike'>
-              <ThumbsDown />
-              <span>10</span>
+              <Heart />
+              <span>{likes}</span>
             </span>
           </div>
         </footer>
@@ -46,11 +110,13 @@ export function Idea() {
         <h1>Comentários</h1>
 
         <div>
-          <div className="comment">
-            <span>Augusto de Almeida Cavalcante</span>
-            <span>20/08/2024 15:06:34</span>
-            <p>Uma ideia de aplicação de emojis ao WhatsApp, para aumentar a diversidade</p>
-          </div>
+          {comments.map((comment, key) => (
+            <div className="comment" key={key}>
+              <span>{comment.username}</span>
+              <span>{comment.created_at}</span>
+              <p>{comment.content}</p>
+            </div>
+          ))}
         </div>
       </section>
     </main>
